@@ -8,7 +8,7 @@ from zipfile import ZipFile
 
 current_dir = os.path.dirname(__file__)  # путь текущей папки
 dir_path = os.path.join(current_dir, 'tmp')  # путь к папке тмп
-archive_path = os.path.join(dir_path, "new_archive.zip")  # имя создаваемого архива
+archive_path = os.path.join(dir_path, "new_archive.zip")  # путь к архиву
 files_dir = [i for i in os.listdir(dir_path)]  # список файлов в папке тмп
 
 
@@ -19,7 +19,7 @@ def create_delete_archive():
             add_file = os.path.join(dir_path, file)
             zf.write(add_file, os.path.basename(add_file))
     yield
-    os.remove(os.path.join(archive_path))
+    os.remove(archive_path)
 
 
 def test_create_archive():
